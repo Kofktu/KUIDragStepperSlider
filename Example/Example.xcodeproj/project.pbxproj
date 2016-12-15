@@ -335,6 +335,7 @@
 				C3FE36781E027C5000F7B2BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
