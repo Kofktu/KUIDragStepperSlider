@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C3FE36551E027C4400F7B2BE /* KUIDragStepperSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FE36531E027C4400F7B2BE /* KUIDragStepperSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3FE36811E027CE000F7B2BE /* KUIDragStepperSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE36801E027CE000F7B2BE /* KUIDragStepperSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C3FE36501E027C4400F7B2BE /* KUIDragStepperSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KUIDragStepperSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FE36531E027C4400F7B2BE /* KUIDragStepperSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KUIDragStepperSlider.h; sourceTree = "<group>"; };
 		C3FE36541E027C4400F7B2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3FE36801E027CE000F7B2BE /* KUIDragStepperSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIDragStepperSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +48,19 @@
 		C3FE36521E027C4400F7B2BE /* KUIDragStepperSlider */ = {
 			isa = PBXGroup;
 			children = (
+				C3FE367F1E027CD200F7B2BE /* Classes */,
 				C3FE36531E027C4400F7B2BE /* KUIDragStepperSlider.h */,
 				C3FE36541E027C4400F7B2BE /* Info.plist */,
 			);
 			path = KUIDragStepperSlider;
+			sourceTree = "<group>";
+		};
+		C3FE367F1E027CD200F7B2BE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3FE36801E027CE000F7B2BE /* KUIDragStepperSlider.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +106,7 @@
 				TargetAttributes = {
 					C3FE364F1E027C4400F7B2BE = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3FE36811E027CE000F7B2BE /* KUIDragStepperSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +252,7 @@
 		C3FE36591E027C4400F7B2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -246,17 +260,20 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KUIDragStepperSlider/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kofktu.KUIDragStepperSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		C3FE365A1E027C4400F7B2BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -264,11 +281,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KUIDragStepperSlider/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kofktu.KUIDragStepperSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -291,6 +309,7 @@
 				C3FE365A1E027C4400F7B2BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
