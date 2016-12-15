@@ -15,9 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C3FE367D1E027C5600F7B2BE /* PBXContainerItemProxy */ = {
+		C3CEA3251E029EEA001DC5F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3FE36791E027C5600F7B2BE /* KUIDragStepperSlider.xcodeproj */;
+			containerPortal = C3CEA3211E029EEA001DC5F5 /* KUIDragStepperSlider.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C3FE36501E027C4400F7B2BE;
 			remoteInfo = KUIDragStepperSlider;
@@ -25,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3CEA3211E029EEA001DC5F5 /* KUIDragStepperSlider.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KUIDragStepperSlider.xcodeproj; path = ../KUIDragStepperSlider.xcodeproj; sourceTree = "<group>"; };
 		C3FE36641E027C5000F7B2BE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FE36671E027C5000F7B2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3FE36691E027C5000F7B2BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		C3FE366E1E027C5000F7B2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3FE36711E027C5000F7B2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3FE36731E027C5000F7B2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3FE36791E027C5600F7B2BE /* KUIDragStepperSlider.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KUIDragStepperSlider.xcodeproj; path = ../KUIDragStepperSlider/KUIDragStepperSlider.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +46,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3CEA3221E029EEA001DC5F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3CEA3261E029EEA001DC5F5 /* KUIDragStepperSlider.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C3FE365B1E027C5000F7B2BE = {
 			isa = PBXGroup;
 			children = (
-				C3FE36791E027C5600F7B2BE /* KUIDragStepperSlider.xcodeproj */,
+				C3CEA3211E029EEA001DC5F5 /* KUIDragStepperSlider.xcodeproj */,
 				C3FE36661E027C5000F7B2BE /* Example */,
 				C3FE36651E027C5000F7B2BE /* Products */,
 			);
@@ -74,14 +82,6 @@
 				C3FE36731E027C5000F7B2BE /* Info.plist */,
 			);
 			path = Example;
-			sourceTree = "<group>";
-		};
-		C3FE367A1E027C5600F7B2BE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3FE367E1E027C5600F7B2BE /* KUIDragStepperSlider.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,8 +133,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C3FE367A1E027C5600F7B2BE /* Products */;
-					ProjectRef = C3FE36791E027C5600F7B2BE /* KUIDragStepperSlider.xcodeproj */;
+					ProductGroup = C3CEA3221E029EEA001DC5F5 /* Products */;
+					ProjectRef = C3CEA3211E029EEA001DC5F5 /* KUIDragStepperSlider.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -145,11 +145,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C3FE367E1E027C5600F7B2BE /* KUIDragStepperSlider.framework */ = {
+		C3CEA3261E029EEA001DC5F5 /* KUIDragStepperSlider.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = KUIDragStepperSlider.framework;
-			remoteRef = C3FE367D1E027C5600F7B2BE /* PBXContainerItemProxy */;
+			remoteRef = C3CEA3251E029EEA001DC5F5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
