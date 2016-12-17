@@ -74,18 +74,17 @@ public class KUIDragStepperSlider: UIControl {
         }
     }
     
-    public private(set) var stepperMinimumValue: CGFloat = 0
-    public private(set) var stepperMaximumValue: CGFloat = 0
+    public var stepperMinimumValue: CGFloat {
+        return min(minimumValue + (CGFloat(stepperIndex) * stepperRange), maximumValue)
+    }
+    public var stepperMaximumValue: CGFloat {
+        return min(stepperMinimumValue + stepperRange, maximumValue)
+    }
     public var stepperValue: CGFloat {
         return stepperMinimumValue + (stepperRange * value)
     }
     
-    @IBInspectable public var stepperIndex = 0 {
-        didSet {
-            stepperMinimumValue = CGFloat(stepperIndex) * stepperRange
-            stepperMaximumValue = min(stepperMinimumValue + stepperRange, maximumValue)
-        }
-    }
+    @IBInspectable public var stepperIndex = 0
     @IBInspectable public var stepperRange: CGFloat = 20.0
     @IBInspectable public var stepperThreshold: CGFloat = 0.7
     
@@ -161,11 +160,13 @@ public class KUIDragStepperSlider: UIControl {
             let value = horizontalMargin * stepperThreshold
             
             if offset.x < value {
-                decrease()
-                return false
+                if decrease() {
+                    return false
+                }
             } else if offset.x > width - value {
-                increase()
-                return false
+                if increase() {
+                    return false
+                }
             }
         }
         
@@ -175,21 +176,23 @@ public class KUIDragStepperSlider: UIControl {
         return true
     }
     
-    private func increase() {
+    private func increase() -> Bool {
         let maxIndex = Int(maximumValue / stepperRange)
-        guard stepperIndex + 1 <= maxIndex else { return }
+        guard stepperIndex + 1 < maxIndex else { return false }
         
         stepperIndex += 1
         value = 0.5
         onStepperValueRangeHandler?(stepperMinimumValue, stepperMaximumValue)
+        return true
     }
     
-    private func decrease() {
-        guard stepperIndex - 1 >= 0 else { return }
+    private func decrease() -> Bool {
+        guard stepperIndex - 1 >= 0 else { return false }
         
         stepperIndex -= 1
         value = 0.5
         onStepperValueRangeHandler?(stepperMinimumValue, stepperMaximumValue)
+        return true
     }
     
 }
