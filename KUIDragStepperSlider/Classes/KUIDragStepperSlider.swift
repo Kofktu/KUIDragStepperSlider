@@ -152,7 +152,7 @@ public class KUIDragStepperSlider: UIControl {
         let sliderWidth = width - (horizontalMargin * 2.0)
         let minX = horizontalMargin + thumbCircleRadius
         let cx = minX + (sliderWidth * self.value)
-        let threshold: CGFloat = thumbCircleRadius * 5
+        let threshold: CGFloat = 80.0
         
         guard fabs(prev.x - cx) < threshold else { return false }
         

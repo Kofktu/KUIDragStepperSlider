@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C306496C1E0D7DFF002A2A02 /* KUIDragStepperSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CEA3261E029EEA001DC5F5 /* KUIDragStepperSlider.framework */; };
 		C3FE36681E027C5000F7B2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE36671E027C5000F7B2BE /* AppDelegate.swift */; };
 		C3FE366A1E027C5000F7B2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE36691E027C5000F7B2BE /* ViewController.swift */; };
 		C3FE366D1E027C5000F7B2BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3FE366B1E027C5000F7B2BE /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C306496C1E0D7DFF002A2A02 /* KUIDragStepperSlider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +118,7 @@
 				TargetAttributes = {
 					C3FE36631E027C5000F7B2BE = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = KLVLNTBFM4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -294,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KLVLNTBFM4;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -307,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KLVLNTBFM4;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
