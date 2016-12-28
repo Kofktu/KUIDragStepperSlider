@@ -74,6 +74,8 @@ public class KUIDragStepperSlider: UIControl {
         }
     }
     
+    @IBInspectable public var dragEnabledThreshold: CGFloat = 40.0
+    
     public var stepperMinimumValue: CGFloat {
         return min(minimumValue + (CGFloat(stepperIndex) * stepperRange), maximumValue)
     }
@@ -152,9 +154,8 @@ public class KUIDragStepperSlider: UIControl {
         let sliderWidth = width - (horizontalMargin * 2.0)
         let minX = horizontalMargin + thumbCircleRadius
         let cx = minX + (sliderWidth * self.value)
-        let threshold: CGFloat = 80.0
         
-        guard fabs(prev.x - cx) < threshold else { return false }
+        guard fabs(prev.x - cx) < dragEnabledThreshold else { return false }
         
         if stepper {
             let value = horizontalMargin * stepperThreshold
