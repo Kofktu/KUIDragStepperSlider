@@ -21,7 +21,7 @@ public class KUIDragStepperSlider: UIControl {
             setNeedsDisplay()
         }
     }
-    @IBInspectable public var thumbCircleColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var thumbCircleColor: UIColor = UIColor.white {
         didSet {
             setNeedsDisplay()
         }
@@ -43,12 +43,12 @@ public class KUIDragStepperSlider: UIControl {
         }
     }
     
-    @IBInspectable public var minimumTrackTintColor: UIColor = UIColor.blueColor() {
+    @IBInspectable public var minimumTrackTintColor: UIColor = UIColor.blue {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable public var maximumTrackTintColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable public var maximumTrackTintColor: UIColor = UIColor.lightGray {
         didSet {
             setNeedsDisplay()
         }
@@ -92,25 +92,24 @@ public class KUIDragStepperSlider: UIControl {
     
     public var onStepperValueRangeHandler: ((CGFloat, CGFloat) -> Void)?
     
-    override public func drawRect(rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         guard let contextRef = UIGraphicsGetCurrentContext() else {
-            super.drawRect(rect)
+            super.draw(rect)
             return
         }
         
         let minX = horizontalMargin + thumbCircleRadius
-        let maxX = CGRectGetWidth(rect) - minX
-        let midY = CGRectGetHeight(rect) / 2.0
-        
+        let maxX = rect.width - minX
+        let midY = rect.height / 2.0
         let width = maxX - minX
-            
+        
         // background
-        CGContextSetFillColorWithColor(contextRef, maximumTrackTintColor.CGColor)
-        CGContextFillRect(contextRef, CGRect(origin: CGPoint(x: minX, y: midY - (sliderHeight / 2.0)), size: CGSize(width: width, height: sliderHeight)))
+        contextRef.setFillColor(maximumTrackTintColor.cgColor)
+        contextRef.fill(CGRect(origin: CGPoint(x: minX, y: midY - (sliderHeight / 2.0)), size: CGSize(width: width, height: sliderHeight)))
         
         // foreground
-        CGContextSetFillColorWithColor(contextRef, minimumTrackTintColor.CGColor)
-        CGContextFillRect(contextRef, CGRect(origin: CGPoint(x: minX, y: midY - (sliderHeight / 2.0)), size: CGSize(width: width * value, height: sliderHeight)))
+        contextRef.setFillColor(minimumTrackTintColor.cgColor)
+        contextRef.fill(CGRect(origin: CGPoint(x: minX, y: midY - (sliderHeight / 2.0)), size: CGSize(width: width * value, height: sliderHeight)))
         
         // circle
         let cx = minX + (width * value) - thumbCircleRadius
@@ -121,36 +120,35 @@ public class KUIDragStepperSlider: UIControl {
             let radius = thumbCircleShadowRadius ?? 2.0
             let size = thumbCircleShadowSize ?? CGSize(width: 0.0, height: 2.0)
             
-            CGContextSaveGState(contextRef)
-            CGContextSetShadowWithColor(contextRef, size, radius, color.CGColor)
-            CGContextFillEllipseInRect(contextRef, circleRect)
-            CGContextRestoreGState(contextRef)
+            contextRef.saveGState()
+            contextRef.setShadow(offset: size, blur: radius, color: color.cgColor)
+            contextRef.fillEllipse(in: circleRect)
+            contextRef.restoreGState()
         }
         
-        CGContextSetFillColorWithColor(contextRef, thumbCircleColor.CGColor)
-        CGContextFillEllipseInRect(contextRef, circleRect)
+        contextRef.setFillColor(thumbCircleColor.cgColor)
+        contextRef.fillEllipse(in: circleRect)
+    }
+
+    public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        return offsetHandler(touch.previousLocation(in: self), offset: touch.location(in: self))
     }
     
-    override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
-        return offsetHandler(touch.previousLocationInView(self), offset: touch.locationInView(self))
+    public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        return offsetHandler(touch.previousLocation(in: self), offset: touch.location(in: self))
     }
     
-    override public func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
-        return offsetHandler(touch.previousLocationInView(self), offset: touch.locationInView(self))
-    }
-    
-    override public func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
+    public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         guard let touch = touch else { return }
-        offsetHandler(touch.previousLocationInView(self), offset: touch.locationInView(self), stepper: false)
+        let _ = offsetHandler(touch.previousLocation(in: self), offset: touch.location(in: self))
     }
     
-    override public func cancelTrackingWithEvent(event: UIEvent?) {
-        
+    public override func cancelTracking(with event: UIEvent?) {
     }
     
     // MARK: - Private
-    private func offsetHandler(prev: CGPoint, offset: CGPoint, stepper: Bool = true) -> Bool {
-        let width = CGRectGetWidth(frame)
+    private func offsetHandler(_ prev: CGPoint, offset: CGPoint, stepper: Bool = true) -> Bool {
+        let width = frame.width
         let sliderWidth = width - (horizontalMargin * 2.0)
         let minX = horizontalMargin + thumbCircleRadius
         let cx = minX + (sliderWidth * self.value)
@@ -172,7 +170,7 @@ public class KUIDragStepperSlider: UIControl {
         }
         
         self.value = (offset.x - horizontalMargin) / sliderWidth
-        sendActionsForControlEvents(.ValueChanged)
+        sendActions(for: .valueChanged)
         
         return true
     }
