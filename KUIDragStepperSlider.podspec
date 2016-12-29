@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KUIDragStepperSlider"
-  s.version      = "1.0.3"
+  s.version      = "1.1.0"
   s.summary      = "Slider for drag stepper"
 
   # This description is used to generate tags and improve search results.
